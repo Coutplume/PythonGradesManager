@@ -5,7 +5,7 @@
             <el-input :disabled="disabled" v-model="class_info.class_id" placeholder="添加时无需填写"></el-input>
         </el-form-item>
         <el-form-item label="教学班年级">
-            <el-input v-model="class_info.grade" placeholder="年级"></el-input>
+            <el-input :disabled="!isAdd" v-model="class_info.grade" placeholder="年级"></el-input>
         </el-form-item>
         <el-form-item label="教学班名称">
             <el-input v-model="class_info.class_name" placeholder="学员队名称"></el-input>
@@ -73,6 +73,9 @@ export default {
     },
     methods: {
         changeClass(e) {
+
+            this.cancel()
+
             this.isfirst = true
             this.class_info.grade = e.grade
             this.isShow = true
